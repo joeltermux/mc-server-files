@@ -1,0 +1,38 @@
+command /re:
+    permission: re.admin
+    permission message: &cNo permission.
+    trigger:
+        execute console command "announce &8&m----------------------------------------"
+        execute console command "announce &8[&4⚠&8] &c&lSERVER RESTART IN &f&l1 MINUTE"
+        execute console command "announce &7Please finish your fights and log out safely."
+        execute console command "announce &8&m----------------------------------------"
+        wait 30 seconds
+
+        execute console command "announce &8[&4⚠&8] &cServer restarting in &f30 seconds"
+        wait 20 seconds
+
+        execute console command "announce &8[&4⚠&8] &cServer restarting in &f10 seconds"
+        wait 5 seconds
+
+        execute console command "announce &8[&4⚠&8] &cRestarting in &f5..."
+        wait 1 second
+
+        execute console command "announce &c&l4..."
+        wait 1 second
+
+        execute console command "announce &c&l3..."
+        wait 1 second
+
+        execute console command "announce &c&l2..."
+        wait 1 second
+
+        execute console command "announce &4&l1..."
+        wait 1 second
+
+        execute console command "announce &4&lRESTARTING NOW!"
+        wait 2 seconds
+
+        execute console command "save-all"
+        wait 2 seconds
+
+        execute console command "restart"

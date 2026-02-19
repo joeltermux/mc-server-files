@@ -1,0 +1,10 @@
+command /announce <text>:
+    permission: announce.use
+    permission message: &cYou don't have permission to use this command!
+    trigger:
+        broadcast "&r"
+        broadcast "&8[&x&0&0&F&F&F&Fᴀ&x&0&0&F&F&F&Fɴ&x&0&5&F&F&F&Fɴ&x&0&A&F&F&F&Fᴏ&x&0&F&F&F&F&Fᴜ&x&1&4&F&F&F&Fɴ&x&1&9&F&F&F&Fᴄ&x&1&E&F&F&F&Fᴇ&x&2&3&F&F&F&Fᴍ&x&2&8&F&F&F&Fᴇ&x&2&D&F&F&F&Fɴ&x&3&2&F&F&F&Fᴛ&8] &r%colored argument%"
+        broadcast "&r"
+        loop all players:
+            send title "&x&0&0&F&F&F&Fᴀ&x&0&0&F&F&F&Fɴ&x&0&5&F&F&F&Fɴ&x&0&A&F&F&F&Fᴏ&x&0&F&F&F&F&Fᴜ&x&1&4&F&F&F&Fɴ&x&1&9&F&F&F&Fᴄ&x&1&E&F&F&F&Fᴇ&x&2&3&F&F&F&Fᴍ&x&2&8&F&F&F&Fᴇ&x&2&D&F&F&F&Fɴ&x&3&2&F&F&F&Fᴛ" with subtitle colored argument to loop-player for 10 ticks, 70 ticks, 20 ticks
+            play sound "entity.experience_orb.pickup" to loop-player
