@@ -1,0 +1,22 @@
+
+command /av:
+    permission: admin.control
+    permission message: &cNo permission!
+    trigger:
+        if {globalgm} is "adventure":
+            set {globalgm} to "survival"
+            loop all players:
+                set loop-player's gamemode to survival
+            broadcast "&a&lAll players are now in SURVIVAL!"
+        else:
+            set {globalgm} to "adventure"
+            loop all players:
+                set loop-player's gamemode to adventure
+            broadcast "&e&lAll players are now in ADVENTURE!"
+
+# Apply gamemode to new players when they join
+on join:
+    if {globalgm} is "adventure":
+        set player's gamemode to adventure
+    if {globalgm} is "survival":
+        set player's gamemode to survival

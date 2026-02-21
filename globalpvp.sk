@@ -1,0 +1,52 @@
+
+command /gpvp [<player>]:
+    permission: admin.globalpvp
+    permission message: &cYou don't have permission!
+    trigger:
+
+        # -------------------------
+        # GLOBAL TOGGLE (no args)
+        # -------------------------
+        if arg-1 is not set:
+            if {globalpvp} is true:
+                set {globalpvp} to false
+                broadcast "&c&lGLOBAL PvP DISABLED!"
+            else:
+                set {globalpvp} to true
+                broadcast "&a&lGLOBAL PvP ENABLED!"
+            stop
+
+        # -------------------------
+        # PLAYER TOGGLE
+        # -------------------------
+        if arg-1 is online:
+            set {_p} to arg-1
+
+            if {pvp.%{_p}%} is true:
+                set {pvp.%{_p}%} to false
+                broadcast "&c&lPvP DISABLED for %{_p}%!"
+            else:
+                set {pvp.%{_p}%} to true
+                broadcast "&a&lPvP ENABLED for %{_p}%!"
+        else:
+            send "&cPlayer not found or offline."
+
+on damage:
+    if attacker is a player:
+        if victim is a player:
+
+            # Global check
+            if {globalpvp} is false:
+                cancel event
+                stop
+
+            # Individual override check
+            if {pvp.%attacker%} is false:
+                cancel event
+                send "&cYour PvP is disabled!" to attacker
+                stop
+
+            if {pvp.%victim%} is false:
+                cancel event
+                send "&cThat player's PvP is disabled!" to attacker
+                stop
